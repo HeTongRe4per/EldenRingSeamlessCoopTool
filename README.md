@@ -6,7 +6,7 @@
 
 ## 使用
 
-直接前往[Releas](https://github.com/HeTongRe4per/EldenRingSeamlessCoopTool/releases)下载最新版的`.zip`，解压后运行`.exe文件即可`
+直接前往[Releas](https://github.com/HeTongRe4per/EldenRingSeamlessCoopTool/releases)下载最新版的`.zip`，解压后运行`.exe`文件即可
 
 ## 提示
 
