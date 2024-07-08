@@ -23,7 +23,7 @@ namespace EldenRingQuickPasswd
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo("https://github.com/HeTongRe4per") { UseShellExecute = true });
+            Process.Start(new ProcessStartInfo("https://github.com/HeTongRe4per/EldenRingSeamlessCoopTool") { UseShellExecute = true });
         }
     }
 }

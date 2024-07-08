@@ -31,8 +31,6 @@ namespace EldenRingQuickPasswd
 
         private bool CheckSelentAndBak()
         {
-            //string[] filesName = GetFilesNameInDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EldenRing", comboBox1.SelectedItem.ToString()));
-
             if (comboBox1.SelectedItem == null)
             {
                 MessageBox.Show("请选择正确用户", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -160,8 +158,6 @@ namespace EldenRingQuickPasswd
             }
         }
 
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (CheckSelentAndBak())
@@ -188,10 +184,13 @@ namespace EldenRingQuickPasswd
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (CheckSelentAndBak())
+            if (GetExtension().Contains("未找到游戏路径"))
+            {
+                MessageBox.Show(".ini文件解析错误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else if (CheckSelentAndBak())
             {
                 RecoverExtension();
-            }
+            } 
         }
     }
 }

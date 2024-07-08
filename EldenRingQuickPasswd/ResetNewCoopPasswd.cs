@@ -36,11 +36,11 @@
 
                 // 将修改后的内容写回文件
                 File.WriteAllLines(iniFilePath, lines);
-                Console.WriteLine($"成功更新 {key} 到 {newPasswd}");
+                MessageBox.Show($"成功更新 {key} 到 {newPasswd}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"更新INI文件时出现错误: {ex.Message}");
+                MessageBox.Show($"更新INI文件时出现错误: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
