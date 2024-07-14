@@ -10,6 +10,8 @@
 
 ## 提示
 
+本程序使用.net8.0环境，请先确保电脑中有.net8环境，没有可以前往[.NET8.0下载](https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0)进行下载
+
 主界面选择更改联机密码或将更改存档官方版存档或者Mod版存档
 
 如果打开游戏发现存档丢失或者其他问题在存档文件夹同级有备份压缩包，格式为`EldenRingBackup_{SteamID64}_{时间}.zip`
