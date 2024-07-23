@@ -50,7 +50,7 @@
             button1.Name = "button1";
             button1.Size = new Size(167, 38);
             button1.TabIndex = 1;
-            button1.Text = "修改无缝联机mod联机密码";
+            button1.Text = "修改无缝联机mod联机规则";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
