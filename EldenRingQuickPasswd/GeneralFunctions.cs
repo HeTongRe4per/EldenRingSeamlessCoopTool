@@ -1,52 +1,22 @@
-﻿namespace EldenRingQuickPasswd
+﻿using Narod.SteamGameFinder;
+
+namespace EldenRingQuickPasswd
 {
     internal class GeneralFunctions
     {
         public static string FindGamePath()
         {
-            string gamePath = null;
-            string steamInstallPath = GetSteamInstallPath();
-            string gameId = "1245620";
-            string steamAppsPath = Path.Combine(steamInstallPath, "steamapps");
-
-            // 搜索appmanifest文件
-            string[] manifestFiles = Directory.GetFiles(steamAppsPath, $"appmanifest_{gameId}.acf");
-            if (manifestFiles.Length > 0)
-            {
-                string manifestContent = File.ReadAllText(manifestFiles[0]);
-                var match = System.Text.RegularExpressions.Regex.Match(manifestContent, "\"installdir\"\\s+\"([^\"\r\n]+)\"");
-                if (match.Success)
-                {
-                    gamePath = Path.Combine(steamAppsPath, "common", match.Groups[1].Value);
-                }
-            }
+            SteamGameLocator steamGameLocator = new SteamGameLocator();
+            string gamePath = steamGameLocator.getGameInfoByFolder("ELDEN RING").steamGameLocation;
             return gamePath;
         }
 
         public static string GetSteamInstallPath()
         {
-            const string steamRegistryKey = @"SOFTWARE\WOW6432Node\Valve\Steam";
-            const string steamRegistryValue = "InstallPath";
+            SteamGameLocator steamGameLocator = new SteamGameLocator();
+            string steamInstallDir = steamGameLocator.getSteamInstallLocation();
 
-            try
-            {
-                using (var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(steamRegistryKey))
-                {
-                    if (key != null)
-                    {
-                        var o = key.GetValue(steamRegistryValue);
-                        if (o != null)
-                        {
-                            return o as string;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"无法找到 Steam 安装路径：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return null;
+            return steamInstallDir;
         }
 
         public static string ReadIniValue(string filePath, string section, string key)

@@ -60,7 +60,7 @@
             // 
             button1.Location = new Point(12, 274);
             button1.Name = "button1";
-            button1.Size = new Size(140, 25);
+            button1.Size = new Size(144, 25);
             button1.TabIndex = 2;
             button1.Text = "Mod版拓展名转原版";
             button1.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(167, 274);
+            button2.Location = new Point(162, 274);
             button2.Name = "button2";
-            button2.Size = new Size(140, 25);
+            button2.Size = new Size(144, 25);
             button2.TabIndex = 4;
             button2.Text = "原版拓展名转Mod版";
             button2.UseVisualStyleBackColor = true;

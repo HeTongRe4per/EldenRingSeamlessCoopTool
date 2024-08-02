@@ -55,6 +55,7 @@
             label5 = new Label();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -286,7 +287,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(138, 16);
+            textBox3.Location = new Point(147, 16);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(30, 23);
             textBox3.TabIndex = 1;
@@ -311,23 +312,34 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(138, 45);
+            textBox4.Location = new Point(147, 45);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(30, 23);
             textBox4.TabIndex = 3;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(138, 74);
+            textBox5.Location = new Point(147, 74);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(30, 23);
             textBox5.TabIndex = 8;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(242, 313);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 11;
+            button2.Text = "恢复默认";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(410, 342);
+            Controls.Add(button2);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -379,5 +391,6 @@
         private TextBox textBox8;
         private GroupBox groupBox4;
         private GroupBox groupBox5;
+        private Button button2;
     }
 }
