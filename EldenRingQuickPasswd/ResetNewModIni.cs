@@ -155,7 +155,7 @@
         public static void SuccessMassge()
         {
             if (passwdFlag && gameplayFlag && scalingFlag)
-                MessageBox.Show("成功更新ini文件", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("成功更新ini文件\n如果是在游戏运行中修改需要重启游戏后才能生效", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

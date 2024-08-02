@@ -17,33 +17,15 @@
             if (!File.Exists(iniFilePath))
             {
                 flag = false;
-                MessageBox.Show("未成功加载ini", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("找到ini文件，请检查Mod是否安装正确", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             checkBoxArray = [checkBox1, checkBox2, checkBox3];
             textBoxArray = [textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8];
-            if (flag)
-            {
-                InitializeWindow();
-            }
-        }
+            if (flag) InitializeWindow();
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (flag)
-            {
-                string newPasswd = textBox2.Text;
-                int[] newScaling = ReadScalingComponet();
-                int[] newGameplay = ReadGameplayComponent();
-
-                ResetNewModIni.ResetCoopPasswd(newPasswd);
-                ResetNewModIni.ResetScaling(newScaling);
-                ResetNewModIni.ResetGameplay(newGameplay);
-
-                ResetNewModIni.SuccessMassge();
-
-                InitializeWindow();
-            }
+            bool steamFlag = Directory.Exists(gamePath), iniFlag = flag;
+            //MessageBox.Show($"Steam {steamFlag} 位置：\n{gamePath}\nini {iniFlag} 位置：\n{iniFilePath}");
         }
 
         private void InitializeWindow()
@@ -114,13 +96,11 @@
             int[] gameplay = new int[4];
 
             // 读取设定部分
-            for(int i = 0; i < gameplay.Length - 1; i++)
+            for (int i = 0; i < gameplay.Length - 1; i++)
             {
-                 gameplay[i] = (checkBoxArray[i].Checked) ? 1 : 0;
+                gameplay[i] = (checkBoxArray[i].Checked) ? 1 : 0;
             }
             gameplay[gameplay.Length - 1] = domainUpDown1.SelectedIndex;
-
-            //MessageBox.Show(Convert.ToString(gameplay[0]) + Convert.ToString(gameplay[1]) + Convert.ToString(gameplay[2]) + Convert.ToString(gameplay[3]));
 
             return gameplay;
         }
@@ -130,12 +110,58 @@
             int[] scaling = new int[6];
 
             // 读取数值部分
-            for(int i = 0, j =2; i < scaling.Length; i++, j++)
+            for (int i = 0, j = 2; i < scaling.Length; i++, j++)
             {
-                scaling[i] = Convert.ToInt32(textBoxArray[j].Text);
+                int temp = Convert.ToInt32(textBoxArray[j].Text);
+                if (temp >= 0 && temp <= 100) scaling[i] = temp;
+                else 
+                { 
+                    MessageBox.Show("数值设定部分请输入0~100的值", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
             return scaling;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                string newPasswd = textBox2.Text;
+                int[] newScaling = ReadScalingComponet();
+                int[] newGameplay = ReadGameplayComponent();
+
+                ResetNewModIni.ResetCoopPasswd(newPasswd);
+                ResetNewModIni.ResetScaling(newScaling);
+                ResetNewModIni.ResetGameplay(newGameplay);
+
+                ResetNewModIni.SuccessMassge();
+
+                InitializeWindow();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                DialogResult dialogResult = MessageBox.Show("确定恢复默认设定？", "恢复默认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.OK)
+                {
+
+                    string newPasswd = null;
+                    int[] newScaling = {35, 0, 15, 100, 0, 20};
+                    int[] newGameplay = {1, 1, 1, 0};
+
+                    ResetNewModIni.ResetCoopPasswd(newPasswd);
+                    ResetNewModIni.ResetScaling(newScaling);
+                    ResetNewModIni.ResetGameplay(newGameplay);
+
+                    ResetNewModIni.SuccessMassge();
+
+                    InitializeWindow();
+                }
+            }
         }
     }
 }

@@ -29,36 +29,27 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            label1 = new Label();
             button1 = new Button();
             button2 = new Button();
             linkLabel1 = new LinkLabel();
+            textBox1 = new TextBox();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(60, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(56, 17);
-            label1.TabIndex = 0;
-            label1.Text = "请选择：";
             // 
             // button1
             // 
-            button1.Location = new Point(60, 64);
+            button1.Location = new Point(12, 144);
             button1.Name = "button1";
-            button1.Size = new Size(167, 38);
+            button1.Size = new Size(129, 25);
             button1.TabIndex = 1;
-            button1.Text = "修改无缝联机mod联机规则";
+            button1.Text = "修改mod规则";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(60, 117);
+            button2.Location = new Point(147, 144);
             button2.Name = "button2";
-            button2.Size = new Size(167, 38);
+            button2.Size = new Size(129, 25);
             button2.TabIndex = 2;
             button2.Text = "存档转换";
             button2.UseVisualStyleBackColor = true;
@@ -67,7 +58,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(162, 185);
+            linkLabel1.Location = new Point(156, 124);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(114, 17);
             linkLabel1.TabIndex = 3;
@@ -75,19 +66,32 @@
             linkLabel1.Text = "by HeTongRe4per";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Control;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Location = new Point(12, 12);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(264, 109);
+            textBox1.TabIndex = 4;
+            textBox1.Text = "本工具是用于艾尔登法环的无缝联机Mod的快捷操作，你可以用它来快捷修改Mod的一些设定，比如联机密码、多人数值等，还可以快捷切换官方版存档和Mod版存档（如果打开游戏发现存档丢失或者其他问题在存档文件夹同级有备份压缩包）出现问题本人概不负责";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(288, 211);
+            ClientSize = new Size(288, 181);
+            Controls.Add(textBox1);
             Controls.Add(linkLabel1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainForm";
+            RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "艾尔登法环小工具";
             ResumeLayout(false);
@@ -95,10 +99,9 @@
         }
 
         #endregion
-
-        private Label label1;
         private Button button1;
         private Button button2;
         private LinkLabel linkLabel1;
+        private TextBox textBox1;
     }
 }
