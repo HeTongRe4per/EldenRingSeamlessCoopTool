@@ -2,7 +2,7 @@
 
 **介绍：** 
 
-本项目是用于艾尔登法环的[无缝联机Mod](https://www.nexusmods.com/eldenring/mods/510)的小工具，现在只有两个功能，快捷修改联机密码和转换mod的存档和官方版的存档
+本项目是用于艾尔登法环的[无缝联机Mod](https://www.nexusmods.com/eldenring/mods/510)的小工具，现在只有两个功能，快捷修改mod设定和转换mod的存档和官方版的存档
 
 ## 使用
 
